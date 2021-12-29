@@ -1,19 +1,25 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import LangSelector from "./Components/LangSelector/LangSelector";
-import { FormattedMessage } from "react-intl";
+import { Route, Switch } from "react-router-dom";
+import MainNavBar from "./Components/MainNavBar/MainNavBar";
+import ContactUs from "./Pages/ContactUs/ContactUs";
+import Products from "./Pages/Products/Products";
+import Home from "./Pages/Home/Home";
 
 function App() {
 	return (
 		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<LangSelector />
-				<h1>
-					<FormattedMessage id="app.title" defaultMessage="AmarVeda" />
-				</h1>
-			</header>
+			<MainNavBar />
+			<Switch>
+				<Route path="/contactus">
+					<ContactUs />
+				</Route>
+				<Route path="/products">
+					<Products />
+				</Route>
+				<Route path="/">
+					<Home />
+				</Route>
+			</Switch>
 		</div>
 	);
 }
